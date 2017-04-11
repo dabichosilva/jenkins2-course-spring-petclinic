@@ -115,7 +115,7 @@ public class OwnerControllerTests {
     @Test
     public void testInitUpdateOwnerForm() throws Exception {
         mockMvc.perform(get("/owners/{ownerId}/edit", TEST_OWNER_ID))
-            .andExpect(!status().isOk())
+            .andExpect(status().isOk())
             .andExpect(model().attributeExists("owner"))
             .andExpect(model().attribute("owner", hasProperty("lastName", is("Franklin"))))
             .andExpect(model().attribute("owner", hasProperty("firstName", is("George"))))
@@ -128,7 +128,7 @@ public class OwnerControllerTests {
     @Test
     public void testProcessUpdateOwnerFormSuccess() throws Exception {
         mockMvc.perform(post("/owners/{ownerId}/edit", TEST_OWNER_ID)
-            .param("firstName", "Joe")
+            .param("firstName", "Joel")
             .param("lastName", "Bloggs")
             .param("address", "123 Caramel Street")
             .param("city", "London")
