@@ -128,7 +128,7 @@ public class OwnerControllerTests {
     @Test
     public void testProcessUpdateOwnerFormSuccess() throws Exception {
         mockMvc.perform(post("/owners/{ownerId}/edit", TEST_OWNER_ID)
-            .param("firstName", "Joel")
+            .param("firstName", "Joe")
             .param("lastName", "Bloggs")
             .param("address", "123 Caramel Street")
             .param("city", "London")
